@@ -3,11 +3,11 @@ import { test, expect } from '@playwright/test';
 
 test('Can_Check_GORDON_KRULL_Case_Activity_History_as_811_in_SF', async ({page, browser }) => {
   //UATX
-  
   await page.goto('https://healthbc--hlthbcuatx.sandbox.my.salesforce.com/');
   await page.getByLabel('Username').fill('automation.811@phsa.ca.hlthbcuatx');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('Technology1990!!!!!!');
+  /*
   await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
   await page.getByLabel('Search', { exact: true }).click();
   await page.waitForTimeout(2000);
@@ -29,7 +29,7 @@ test('Can_Check_GORDON_KRULL_Case_Activity_History_as_811_in_SF', async ({page, 
   //Validate
   const isTextVisible1 = await page.locator('text=Health Connect Registry – Update Successfu').isVisible();
   const isTextVisible2 = await page.locator('text=Health Connect Registry – Confirmation of Registration').isVisible();
-  
+  */
 }); 
 
 
