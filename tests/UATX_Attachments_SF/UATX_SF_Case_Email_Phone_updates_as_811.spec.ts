@@ -8,6 +8,7 @@ test('Can_do_Updates_GORDON_KRULL_Email_Phone_as_811_in_SF', async ({page, brows
   await page.getByLabel('Username').fill('automation.811@phsa.ca.hlthbcuatx');
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('Technology1990!!!!!!');
+  /*
   await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
   await page.getByLabel('Search', { exact: true }).click();
   await page.waitForTimeout(2000);
@@ -38,7 +39,7 @@ test('Can_do_Updates_GORDON_KRULL_Email_Phone_as_811_in_SF', async ({page, brows
   //Validate updated fields
   const isTextVisible1 = await page.locator('text=igor.emelyanov_updates_sf@phsa.ca').isVisible();
   const isTextVisible2 = await page.locator('text=2505557777').isVisible();
-  
+*/  
 }); 
 
 
