@@ -14,13 +14,13 @@ test('Can_do_Updates_GORDON_KRULL_Email_Phone_as_811_in_SF', async ({page, brows
   await page.waitForTimeout(2000);
   await page.getByLabel('Search', { exact: true }).click();
   //await page.getByPlaceholder('Search...').fill('Gordon Krull');
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(2000);
   await page.getByPlaceholder('Search...').fill('9873026929');
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(5000);
   await page.getByPlaceholder('Search...').press('Enter');
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(5000);
   await page.getByRole('tab', { name: '- Search 9873026929 - Search' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(5000);
   await page.getByRole('heading', { name: 'Gordon Krull' }).getByRole('link').click();
   await page.waitForTimeout(2000);
   //Go to the Gordon Case
