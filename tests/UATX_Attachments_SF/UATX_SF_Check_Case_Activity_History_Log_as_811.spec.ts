@@ -26,13 +26,16 @@ test('Can_Check_GORDON_KRULL_Case_Activity_History_as_811_in_SF', async ({page, 
   //await page.click('div.slds-grid a.slds-truncate');
   await page.getByLabel('Cases').getByRole('link').nth(1).click();
   await page.getByRole('tab', { name: 'Activity' }).click();
+  await page.waitForTimeout(2000);
   //Validate
-  //const historyRegistered = page.locator('text=Health Connect Registry – Confirmation of Registration');
+  //const historyRegistered = page.locator('text=Health Connect Registry');
+  const historyRegistered = page.getByLabel('Activity History|Activity').getByRole('link', { name: 'Health Connect Registry – Confirmation of Registration' })
   //const historyUpdated = page.locator('text=Health Connect Registry – Update Successful');
-  //await expect(historyRegistered).toBeVisible();
-  //await expect(historyRegistered).toHaveText('Health Connect Registry – Confirmation of Registration');
-  //await expect(historyUpdated).toBeVisible();
-  //await expect(historyUpdated).toHaveText('Health Connect Registry – Update Successful');
+  const historyUpdated = page.getByLabel('Activity History|Activity').getByRole('link', { name: 'Health Connect Registry – Update Successful' })
+  await expect(historyRegistered).toBeVisible();
+  await expect(historyRegistered).toHaveText('Health Connect Registry – Confirmation of Registration');
+  await expect(historyUpdated).toBeVisible();
+  await expect(historyUpdated).toHaveText('Health Connect Registry – Update Successful');
   
   
 }); 
