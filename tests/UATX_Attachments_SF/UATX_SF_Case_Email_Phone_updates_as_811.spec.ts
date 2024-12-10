@@ -32,9 +32,34 @@ test('Can_do_Updates_GORDON_KRULL_Email_Phone_as_811_in_SF', async ({page, brows
   await page.waitForTimeout(1000);
   await page.getByLabel('Email Address').nth(0).click();
   await page.getByLabel('Email Address').nth(0).fill('igor.emelyanov_Updates_SF@phsa.ca');
-  await page.getByLabel('Telephone Number').nth(0).click();
-  await page.waitForTimeout(1000);
-  await page.getByLabel('Telephone Number').nth(0).fill('(250) 555-7777');
+
+  //if nothing in the Case Mobile Number component -empty
+  const caseMobileTelephoneNumber_updatedMobNumberATD = "//runtime_omnistudio_omniscript-omniscript-block[@data-omni-key = 'Mobile']//runtime_omnistudio_omniscript-omniscript-telephone[@data-omni-key = 'updatedMobNumberATD']//input"
+  if (await page.locator(caseMobileTelephoneNumber_updatedMobNumberATD).isVisible()) {
+    console.log("The element updatedMobNumberATD is visible!");
+    await page.locator(caseMobileTelephoneNumber_updatedMobNumberATD).waitFor();
+    await page.locator(caseMobileTelephoneNumber_updatedMobNumberATD).click();
+    await page.waitForTimeout(1000);
+    await page.locator(caseMobileTelephoneNumber_updatedMobNumberATD).fill('(250) 555-7777');
+  } else {
+    console.log("The element updatedMobNumberATD is not visible.");
+  }
+  //if something in the Case Mobile Number component already
+  const caseMobileTelephoneNumber_contactPointMobileNumber = "//runtime_omnistudio_omniscript-omniscript-block[@data-omni-key = 'Mobile']//runtime_omnistudio_omniscript-omniscript-telephone[@data-omni-key = 'contactPointMobileNumber']//input"
+  if (await page.locator(caseMobileTelephoneNumber_contactPointMobileNumber).isVisible()) {
+    console.log("The element contactPointMobileNumber is visible!");
+    await page.locator(caseMobileTelephoneNumber_contactPointMobileNumber).waitFor();
+    await page.locator(caseMobileTelephoneNumber_contactPointMobileNumber).click();
+    await page.waitForTimeout(1000);
+    await page.locator(caseMobileTelephoneNumber_contactPointMobileNumber).fill('(250) 555-7777');
+  } else {
+    console.log("The element contactPointMobileNumber is not visible.");
+  }
+
+  //await page.getByLabel('Telephone Number').nth(1).click();
+  //await page.waitForTimeout(1000);
+  //await page.getByLabel('Telephone Number').nth(1).fill('(250) 555-7777');
+  
   await page.locator('label').filter({ hasText: 'An address change for this' }).locator('span').first().click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(5000);
